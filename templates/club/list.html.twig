@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClubController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <table>
+    <tr>
+    <tr>
+    
+        <th>ref</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>date_debut</th>
+        <th>date_fin</th>
+        <th>nb_participants</th>
+   
+    </tr>
+    <tr>
+    
+        <th>ref</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>date_debut</th>
+        <th>date_fin</th>
+        <th>nb_participants</th>
+   
+    </tr>
+    <tr>
+    
+        <th>ref</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>date_debut</th>
+        <th>date_fin</th>
+        <th>nb_participants</th>
+   
+    </tr>
+    </tr>
+    {% for t in tab %}
+    <tr>
+        <td>t.ref</td>
+        <td>t.Titre</td>
+        <td>t.Description</td>
+        <td>t.date_debut</td>
+        <td>t.date_fin</td>
+        <td>t.nb_participants</td>
+    </tr>
+    {% endfor %}
+    </table>
+     {% for t in tab %}
+    {{t.Titre|upper}}
+    {% endfor %}
+    {% set i = 0 %}
+    {% for t in tab %}
+    {{i++}}
+    {% endfor %}
+     {% for t in tab %}
+     {% if t.Description='formation théorique' %}
+    {{t.Titre}}
+    {% endif %}
+    {% endfor %}
+     {% for t in tab %}
+     {% if max(t.nb_participants) %}
+    {{t.Titre}}
+    {% endif %}
+    {% endfor %}
+    {% set j = 0 %}
+     {% for t in tab %}
+    {{t.nb_participants}}
+     {{j++}}
+    {% endfor %}
+     {% if tab is empty %}
+     le tableau est vide
+      {% endif %}
+<form method="POST" action="ClubController.php">
+    <input type="SUBMIT" name="participer" value="participer()">
+    </form>
+</div>
+{% endblock %}
